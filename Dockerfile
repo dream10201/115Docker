@@ -3,7 +3,7 @@ ENV LANG=zh_CN.UTF-8 \
     LC_ALL=zh_CN.UTF-8
 RUN apt update \
     && DEBIAN_FRONTEND=noninteractive \
-    && apt install -y wget curl unzip locales locales-all sudo \
+    && apt install -y wget curl unzip locales locales-all fonts-nanum fonts-noto-cjk fonts-noto-cjk-extra fonts-dejavu fonts-liberation fonts-noto fonts-unfonts-core fonts-unfonts-extra \
     && locale-gen zh_CN.UTF-8 \
     && update-locale LANG=zh_CN.UTF-8 \
     && rm -rf /var/lib/apt/lists/* \
@@ -53,6 +53,7 @@ RUN apt update \
     && rm master.zip \
     && mkdir -p /opt/Desktop \
     && mkdir -p /opt/Downloads \
+    && chmod 777 -R /opt/Downloads \
     && cp /usr/share/applications/115Browser.desktop /opt/Desktop \
     && cp /usr/share/applications/pcmanfm.desktop /opt/Desktop \
     && chmod 777 -R /opt \
