@@ -13,7 +13,7 @@ FROM base AS desktop
 RUN apt update \
     && DEBIAN_FRONTEND=noninteractive \
     # thunar 
-    && apt install -y pcmanfm tint2 openbox xauth xinit \
+    && apt install -y pcmanfm tint2 wbar openbox xauth xinit \
     && rm -rf /var/lib/apt/lists/*
 
 FROM desktop AS tigervnc
