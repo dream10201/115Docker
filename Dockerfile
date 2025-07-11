@@ -8,8 +8,6 @@ ENV \
     LD_LIBRARY_PATH=/usr/local/115Browser:\$LD_LIBRARY_PATH
 RUN apt update \
     && apt install -y --no-install-recommends libnss3 libgbm1 \
-    && wget -q --no-check-certificate https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-amd64 -O /usr/bin/jq \
-    && chmod +x /usr/bin/jq \
     && export VERSION=`curl -k -s https://appversion.115.com/1/web/1.0/api/getMultiVer | jq '.data["Linux-115chrome"].version_code'  | tr -d '"'` \
     && wget -q --no-check-certificate "https://down.115.com/client/115pc/lin/115br_v${VERSION}.deb" -O /tmp/tmp.deb \
     && apt install /tmp/tmp.deb  \
