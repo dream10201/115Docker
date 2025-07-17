@@ -36,21 +36,17 @@ RUN apt update \
     --enable-features=ParallelDownloading \
     --start-maximized \
     --no-sandbox \
-    --disable-vulkan \
-    --disable-gpu \
     --ignore-certificate-errors \
     --disable-bundled-plugins \
     --disable-dev-shm-usage \
     --reduce-user-agent-sniffing \
     --no-first-run \
     --disable-breakpad \
-    --disable-gpu-process-crash-limit \
     --enable-low-res-tiling \
     --disable-heap-profiling \
-    --disable-features=IsolateOrigins,site-per-process \
+    --disable-features=IsolateOrigins,site-per-process,OptimizationHints,MediaRouter,Translate,SidePanel,ReadingMode,GlobalMediaControls,TabHoverCardImages,PasswordManager,ReadAnything,Autofill,PictureInPicture,WebUITabStrip,FocusMode,LensStandalone,DomainReliability,SendMouseEventsToCompositor,BackgroundFetch,WebBluetooth,WebNfc,CooperativeScheduling,Sharing,WebCodecs,WebRtc,WebGpu,PrivacySandbox,FederatedLearningOfCohorts,IdleDetection,ClientSidePhishingDetection \
     --disable-smooth-scrolling \
     --lang=zh-CN \
-    --disable-software-rasterizer \
     >/tmp/115Browser.log 2>&1 &" >> /usr/local/115Browser/115.sh \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
