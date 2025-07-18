@@ -4,6 +4,7 @@ sed -i \
     -e "s/\(SEID:\s*'\)[^']*'/\1$SEID'/" \
     -e "s/\(UID:\s*'\)[^']*'/\1$UID'/" \
     -e "s/\(KID:\s*'\)[^']*'/\1$KID'/" \
+	-e "s/\(EXPIRATION_DATE:\s*\)[0-9]*/\1$(date -d "+1 year" +%s)/" \
     "/usr/local/115Cookie/worker.js"
 if [ -z "${DISPLAY_WIDTH}" ]; then
     DISPLAY_WIDTH=1366
