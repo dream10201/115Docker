@@ -1,5 +1,10 @@
 #!/bin/bash
-sed -i "1s/^/const CID=\"${CID}\"\nconst SEID=\"${SEID}\"\nconst UID=\"${UID}\"\nconst KID=\"${KID}\"\n/" /usr/local/115Cookie/worker.js
+sed -i \
+    -e "s/\(CID:\s*'\)[^']*'/\1$CID'/" \
+    -e "s/\(SEID:\s*'\)[^']*'/\1$SEID'/" \
+    -e "s/\(UID:\s*'\)[^']*'/\1$UID'/" \
+    -e "s/\(KID:\s*'\)[^']*'/\1$KID'/" \
+    "/usr/local/115Cookie/worker.js"
 if [ -z "${DISPLAY_WIDTH}" ]; then
     DISPLAY_WIDTH=1366
 fi
