@@ -22,9 +22,10 @@ docker run \
 -e PASSWORD=123456 \
 -e DISPLAY_WIDTH=1920 \
 -e DISPLAY_HEIGHT=1080 \
--e CID="xxxxxxxxx" \
--e SEID="xxxxxxxx" \
--e UID="xxxxxxxxx" \
+-e COOKIE_CID="xxxxxxxxx" \
+-e COOKIE_SEID="xxxxxxxx" \
+-e COOKIE_UID="xxxxxxxxx" \
+-e COOKIE_KID="xxxxxxxxx" \
 -e TZ=Asia/Shanghai \
 -e LC_ALL=zh_CN.UTF-8 \
 -v /path/to/download:/opt/Downloads \
@@ -42,10 +43,10 @@ ghcr.io/dream10201/115docker:latest
 | 变量名 | 默认值 | 说明 |
 |--------|--------|------|
 | `PASSWORD` | "" | VNC密码,必须设置 |
-| `CID` | "" | Cookie | 用于自动登录 |
-| `SEID` | "" | Cookie | 用于自动登录 |
-| `UID` | "" | Cookie | 用于自动登录 |
-| `UID` | "" | Cookie | 用于自动登录 |
+| `COOKIE_CID` | "" | Cookie | 用于自动登录 |
+| `COOKIE_SEID` | "" | Cookie | 用于自动登录 |
+| `COOKIE_UID` | "" | Cookie | 用于自动登录 |
+| `COOKIE_KID` | "" | Cookie | 用于自动登录 |
 | `DISPLAY_WIDTH` | 1920 | 窗口宽度 |
 | `DISPLAY_HEIGHT` | 1080 | 窗口高度 |
 
