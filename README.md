@@ -47,8 +47,8 @@ ghcr.io/dream10201/115docker:latest
 | `COOKIE_SEID` | "" | Cookie | 用于自动登录 |
 | `COOKIE_UID` | "" | Cookie | 用于自动登录 |
 | `COOKIE_KID` | "" | Cookie | 用于自动登录 |
-| `DISPLAY_WIDTH` | 1920 | 窗口宽度 |
-| `DISPLAY_HEIGHT` | 1080 | 窗口高度 |
+| `DISPLAY_WIDTH` | 1366 | 窗口宽度 |
+| `DISPLAY_HEIGHT` | 768 | 窗口高度 |
 
 ### 数据卷挂载
 
