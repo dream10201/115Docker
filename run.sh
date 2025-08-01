@@ -1,15 +1,13 @@
 #!/bin/bash
 rm -rf /etc/115/SingletonLock /etc/115/SingletonSocket /etc/115/SingletonCookie
 echo "清理 Chromium 锁文件成功"
-if [ ! -d "/etc/115/Default" ] && \
-   [ -n "$COOKIE_CID" ] && [ -n "$COOKIE_SEID" ] && [ -n "$COOKIE_UID" ] && [ -n "$COOKIE_KID" ]; then
-    sed -i \
-        -e "s/\(CID:\s*'\)[^']*'/\1$COOKIE_CID'/" \
-        -e "s/\(SEID:\s*'\)[^']*'/\1$COOKIE_SEID'/" \
-        -e "s/\(UID:\s*'\)[^']*'/\1$COOKIE_UID'/" \
-        -e "s/\(KID:\s*'\)[^']*'/\1$COOKIE_KID'/" \
-        -e "s/\(EXPIRATION_DATE:\s*\)[0-9]*/\1$(date -d "+1 year" +%s)/" \
-        "/usr/local/115Cookie/worker.js"
+if [ -n "$COOKIE_CID" ] && [ -n "$COOKIE_SEID" ] && [ -n "$COOKIE_UID" ] && [ -n "$COOKIE_KID" ]; then
+	sed -i \
+		-e "s/\(CID:\s*'\)[^']*'/\1$COOKIE_CID'/" \
+		-e "s/\(SEID:\s*'\)[^']*'/\1$COOKIE_SEID'/" \
+		-e "s/\(UID:\s*'\)[^']*'/\1$COOKIE_UID'/" \
+		-e "s/\(KID:\s*'\)[^']*'/\1$COOKIE_KID'/" \
+		"/usr/local/115Cookie/worker.js"
     echo "First run: Cookie injected"
 else
     echo "Existing profile found or no COOKIE, skipping injection"
