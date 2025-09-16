@@ -85,7 +85,9 @@ jobs:
           push: true
           tags: |
             ghcr.io/dream10201/115docker:latest
+            ghcr.io/dream10201/115docker:${{ steps.fetch-url.outputs.version }}
             docker.io/xiuxiu10201/115:latest
+            docker.io/xiuxiu10201/115:${{ steps.fetch-url.outputs.version }}
 
       - name: Release and push (non-master branch)
         # if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name != 'master' }}
