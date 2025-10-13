@@ -77,9 +77,17 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
+      - name: Release and push (manual dispatch)
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name == 'master' }}
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: |
+            ghcr.io/dream10201/115docker:latest
+            docker.io/xiuxiu10201/115:latest
+
       - name: Release and push (master branch)
-        # if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name == 'master' }}
-        if: ${{ github.ref_name == 'master' }}
+        if: ${{ github.event_name != 'workflow_dispatch' && github.ref_name == 'master' }}
         uses: docker/build-push-action@v6
         with:
           push: true
@@ -88,13 +96,3 @@ jobs:
             ghcr.io/dream10201/115docker:${{ steps.fetch-url.outputs.version }}
             docker.io/xiuxiu10201/115:latest
             docker.io/xiuxiu10201/115:${{ steps.fetch-url.outputs.version }}
-
-      - name: Release and push (non-master branch)
-        # if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name != 'master' }}
-        if: ${{ github.ref_name == 'dev' }}
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: |
-            ghcr.io/dream10201/115docker:dev
-            docker.io/xiuxiu10201/115:dev
