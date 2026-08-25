@@ -81,19 +81,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
-      - name: Release and push (manual dispatch)
-        if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name == 'master' }}
-        uses: docker/build-push-action@v7
-        with:
-          push: true
-          build-args: |
-            VERSION=${{ steps.fetch-url.outputs.version }}
-          tags: |
-            ghcr.io/dream10201/115docker:latest
-            docker.io/xiuxiu10201/115:latest
-
-      - name: Release and push (master branch)
-        if: ${{ github.event_name != 'workflow_dispatch' && github.ref_name == 'master' }}
+      - name: Release and push
+        if: ${{ github.ref_name == 'master' }}
         uses: docker/build-push-action@v7
         with:
           push: true
