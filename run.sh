@@ -58,6 +58,8 @@ pcmanfm --desktop --profile default &
 echo "Starting tint2..."
 G_SLICE=always-malloc tint2 -c "$TINT2_CONF" &
 
-echo "Starting 115 Browser..."
-/usr/local/115Browser/115.sh
+if [ "${AUTO_START}" = "true" ]; then
+    echo "Starting 115 Browser..."
+    /usr/local/115Browser/115.sh
+fi
 wait

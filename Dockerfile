@@ -21,6 +21,7 @@ RUN apt update \
     && rm /tmp/tmp.zip \
     && mkdir -p /opt/Desktop /etc/115 \
     && cp /usr/share/applications/115Browser.desktop /usr/share/applications/pcmanfm.desktop /opt/Desktop \
+    && sed -i 's|^Exec=.*|Exec=/usr/local/115Browser/115.sh|' /opt/Desktop/115Browser.desktop \
     && chmod 777 -R /opt /etc/115 \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

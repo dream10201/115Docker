@@ -43,6 +43,7 @@ ghcr.io/dream10201/115docker:latest
 | 变量名 | 默认值 | 说明 |
 |--------|--------|------|
 | `PASSWORD` | "" | WEB VNC密码 |
+| `AUTO_START` | "false" | 是否随容器自动启动115浏览器，默认不启动，可在VNC桌面双击图标手动启动 |
 | `COOKIE_CID` | "" | Cookie | 用于自动登录 |
 | `COOKIE_SEID` | "" | Cookie | 用于自动登录 |
 | `COOKIE_UID` | "" | Cookie | 用于自动登录 |
