@@ -1,3 +1,6 @@
+# 115官方出了桌面客户端，可以使用这个项目，同样web环境使用
+# https://github.com/dream10201/115Desktop
+
 # 115Docker - Web 环境中的 115 浏览器客户端
 一个基于 LinuxServer WebTop 的 Docker 解决方案，在 Web 环境中运行 115 浏览器客户端，提供便捷的远程访问体验。
 
