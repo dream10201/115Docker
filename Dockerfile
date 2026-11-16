@@ -1,4 +1,4 @@
-FROM docker.io/xiuxiu10201/webvnc:latest
+FROM ghcr.io/dream10201/webvnc:latest
 ENV \
     XDG_CONFIG_HOME=/tmp \
     XDG_CACHE_HOME=/tmp \
