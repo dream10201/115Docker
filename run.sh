@@ -23,6 +23,7 @@ if [ -f "$COOKIE_FILE" ]; then
 fi
 
 echo "geometry=${DISPLAY_WIDTH}x${DISPLAY_HEIGHT}" > "${HOME}/.vnc/config"
+echo "SendPrimary=0" >> "${HOME}/.vnc/config"
 
 if [ -n "${PASSWORD}" ]; then
     export PASSWD_PATH="${HOME}/.vnc/passwd"
